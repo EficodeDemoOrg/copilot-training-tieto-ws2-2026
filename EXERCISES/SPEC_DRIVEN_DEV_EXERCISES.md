@@ -26,7 +26,7 @@ OpenSpec offers two modes:
 In this exercise we use the default mode, where the workflow typically looks like this:
 
 ```
-/opsx-propose ──► /opsx-apply ──► /opsx-archive
+/openspec-new-change ──► /openspec-apply-change ──► /openspec-archive-change
 ```
 
 For details, see the [official documentation](https://github.com/Fission-AI/OpenSpec/blob/main/docs/workflows.md).
@@ -35,24 +35,26 @@ For details, see the [official documentation](https://github.com/Fission-AI/Open
 
 Let's use OpenSpec to specify and implement a feature that lets users add milestones to a chart.
 
-1. Start by creating a proposal for the new feature:
+1. Start by scaffolding a new change:
     ```
-    /opsx-propose The user can add milestones to the Gantt chart. A milestone is a zero-duration marker representing a key event (release, deadline, sign-off) rather than a span of work. It is rendered as a diamond marker, and hovering over it reveals a label with the milestone title.
+    /openspec-new-change The user can add milestones to the Gantt chart. A milestone is a zero-duration marker representing a key event (release, deadline, sign-off) rather than a span of work. It is rendered as a diamond marker, and hovering over it reveals a label with the milestone title.
     ```
-2. Once `/opsx-propose` finishes, a new directory will appear under `openspec/changes`, likely named `add-milestones` or similar. Open `add-milestones/specs/milestones/spec.md` (the exact directory names may differ). This is the *delta spec* — a description of what is changing. Note the other files as well:
+2. After running `/openspec-new-change`, a new directory will appear under `openspec/changes`, likely named `add-milestones` or similar. OpenSpec will then start the process of creating proposal, design etc. artifacts inside the folder, one at a time. See through the whole process, answering any questions and progressing to the creation of the next artifact when prompted. Validating the files before continuing to the next file (at least skim them through to understand the contents). The files that OpenSpec will create are:
     - `proposal.md` — the "why" and "what": intent, scope, and approach.
     - `design.md` — the "how": technical approach and architecture decisions.
     - `tasks.md` — the implementation checklist with checkboxes.
-3. At this point, review the design documents and make any necessary changes, either manually or with Copilot's assistance.
-4. Apply the changes:
+    - `spec.md` -  the delta spec: a description of what is changing
+
+4. At this point, review the design documents and make any necessary changes, either manually or with Copilot's assistance.
+5. Apply the changes:
     ```
-    /opsx-apply
+    /openspec-apply-change
     ```
     This starts the implementation based on the specs.
-5. When the implementation finishes, verify the result in the browser.
-6. Once you are satisfied with the implementation, archive the change:
+6. When the implementation finishes, verify the result in the browser.
+7. Once you are satisfied with the implementation, archive the change:
     ```
-    /opsx-archive
+    /openspec-archive-change
     ```
     Choose "sync now" when prompted.
-7. Inspect the `openspec/specs` directory. The delta specs should now be part of the official specification — the source of truth for how the system works.
+8. Inspect the `openspec/specs` directory. The delta specs should now be part of the official specification — the source of truth for how the system works.
