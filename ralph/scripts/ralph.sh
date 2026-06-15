@@ -74,7 +74,7 @@ while :; do
 
   prompt_text="$(cat "$PROMPT_FILE")"
 
-  copilot "${copilot_args[@]}" -p "$prompt_text" 2>&1 | tee "$log_file"
+  copilot "${copilot_args[@]}" --yolo --autopilot -p "$prompt_text" 2>&1 | tee "$log_file"
   status=${PIPESTATUS[0]}
   echo "── iteration $iter exit=$status"
 
