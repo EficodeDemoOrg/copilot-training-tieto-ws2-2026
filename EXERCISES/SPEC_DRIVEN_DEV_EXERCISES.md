@@ -8,9 +8,17 @@ OpenSpec is a lightweight, AI-friendly workflow that captures proposed changes a
     ```bash
     npm install -g @fission-ai/openspec@latest
     ```
-2. Initialize OpenSpec in this repository:
+2. Configure OpenSpec profile
     ```bash
     cd copilot-training-gantt-chart
+    openspec config profile
+    ```
+    Choose:
+     1. Delivery and workflows
+     2. Both (skills + commands)
+     3. All workflows (using space)
+2. Initialize OpenSpec in this repository:
+    ```bash
     openspec init
     ```
 3. Select GitHub Copilot from the menu.
