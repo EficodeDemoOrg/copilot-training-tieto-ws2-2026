@@ -32,19 +32,19 @@ Let's start by setting up the MCP server.
     It should look like this:
     ```json
     {
-        "mcpServers": {
-            "playwright": {
-            "type": "local",
-            "command": "npx",
-            "tools": [
-                "*"
-            ],
-            "args": [
-                "-y",
-                "@playwright/mcp@latest"
-            ]
-            }
+      "mcpServers": {
+        "playwright": {
+          "type": "stdio",
+          "command": "npx",
+          "tools": [
+            "*"
+          ],
+          "args": [
+            "-y",
+            "@playwright/mcp@latest"
+          ]
         }
+      }
     }
     ```
 
